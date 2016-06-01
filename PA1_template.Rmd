@@ -37,7 +37,10 @@ ggplot(data=averageStep, aes(x=interval, y=meanStep)) +
         xlab("5-minute interval") +
         ylab("average number of steps taken")
 ```
-
+```{r}
+## What is maximum number of steps?
+averageStep[which.max(averageStep$meanStep),] ##Finding the max value of Steps
+```
 
 ## Imputing missing values
 

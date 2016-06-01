@@ -57,6 +57,15 @@ ggplot(data=averageStep, aes(x=interval, y=meanStep)) +
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
+```r
+## What is maximum number of steps?
+averageStep[which.max(averageStep$meanStep),] ##Finding the max value of Steps
+```
+
+```
+##     interval meanStep
+## 104      835 206.1698
+```
 
 ## Imputing missing values
 
