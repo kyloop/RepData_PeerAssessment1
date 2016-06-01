@@ -44,6 +44,18 @@ median(totalSteps, na.rm = TRUE)
 
 ## What is the average daily activity pattern?
 
+```r
+library(ggplot2)
+library(plyr)
+averageStep <- ddply(data1, c("interval"), summarise, mean = mean(steps,na.rm = TRUE))
+colnames(averageStep)[2]<-"meanStep" ##Rename the Steps column
+ggplot(data=averageStep, aes(x=interval, y=meanStep)) + 
+        geom_line() +
+        xlab("5-minute interval") +
+        ylab("average number of steps taken")
+```
+
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 
 ## Imputing missing values
