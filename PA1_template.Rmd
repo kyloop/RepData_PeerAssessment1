@@ -15,7 +15,7 @@ data1 <- read.csv("activity.csv")
 ```
 
 ## What is mean total number of steps taken per day?
-```{r}
+```{r, fig.height=10, fig.width=10}
 library(ggplot2)
 totalSteps <- tapply(data1$steps, data1$date, FUN=sum, na.rm=TRUE)  ##Calculate the total steps by date.
 qplot(totalSteps,xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
