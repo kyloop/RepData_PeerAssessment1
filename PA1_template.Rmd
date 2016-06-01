@@ -43,7 +43,45 @@ averageStep[which.max(averageStep$meanStep),] ##Finding the max value of Steps
 ```
 
 ## Imputing missing values
+```{r}
+missingSteps<-is.na(data1$steps)
+sumssingSteps<-sum(missingSteps) ## counting how many input is missing
+as.table(summary(is.na(data1))) ## Summarize as a table for missing values 
+filledData<-data1 ## Create another data set for replacing the original data set
+filledData$steps[which(is.na(filledData$steps))] <- tapply(filledData$steps, filledData$interval, mean, na.rm=T, simplify=TRUE ) ## subsitite the na with mean value
+filledDataTotalSteps<-tapply(filledData$steps,filledData$date,FUN = sum)
+```
 
-
+##Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. 
+```{r}
+qplot(filledDataTotalSteps,binwidth=500, xlab="Total Steps taken each day")
+mean(filledDataTotalSteps)
+median(filledDataTotalSteps)
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+##Function to distinguish the weekdays or weekend
+```{r}
+functionofday <- function(date){
+        c<-weekdays(date)
+        if (c %in% c("Monday","Tuesday","Wednesday","Thursday","Friday")){
+                return("Weekday")}
+        else{ return ("Weekend")}
+}
+```
+
+## Call the function: functionofday
+```{r}
+filledData$DayofWeek <- sapply(as.Date(filledData$date), functionofday)
+```
+
+## Finding the average steps intervals and DayofWeek
+```{r}
+averageStep2 <- ddply(filledData, c("interval","DayofWeek"), summarise, mean = mean(steps,na.rm = TRUE))
+colnames(averageStep2)[3]<-"Steps"
+ggplot(data=averageStep2, aes(x=interval, y=Steps)) + 
+        geom_line() +
+        facet_grid(DayofWeek ~ .) +   ## Split the plot in terms of Weekday and Weekend
+        xlab("5-minute interval") +
+        ylab("Average Steps")
+```

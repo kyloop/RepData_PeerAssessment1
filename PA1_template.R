@@ -55,7 +55,7 @@ filledData$DayofWeek <- sapply(as.Date(filledData$date), functionofday)
 ## Finding the average steps intervals and DayofWeek
 averageStep2 <- ddply(filledData, c("interval","DayofWeek"), summarise, mean = mean(steps,na.rm = TRUE))
 colnames(averageStep2)[3]<-"Steps"
-a<-ggplot(data=averageStep2, aes(x=interval, y=Steps)) + 
+ggplot(data=averageStep2, aes(x=interval, y=Steps)) + 
         geom_line() +
         facet_grid(DayofWeek ~ .) +   ## Split the plot in terms of Weekday and Weekend
         xlab("5-minute interval") +
