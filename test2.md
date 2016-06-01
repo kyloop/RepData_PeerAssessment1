@@ -39,6 +39,6 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
-![plot of chunk pressure](figure/pressure-1.png)
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
