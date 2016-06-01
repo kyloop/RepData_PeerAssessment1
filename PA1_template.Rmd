@@ -5,6 +5,9 @@ output:
     keep_md: true
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Loading and preprocessing the data
 ```{r}
@@ -17,7 +20,7 @@ library(ggplot2)
 totalSteps <- tapply(data1$steps, data1$date, FUN=sum, na.rm=TRUE)  ##Calculate the total steps by date.
 ```
 
-```{r}
+```{r totalSteps, fig.width=6, fig.height=3.5, echo=TRUE}
 qplot(totalSteps, xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
 ```
 

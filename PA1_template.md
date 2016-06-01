@@ -1,6 +1,7 @@
 # Reproducible Research: Peer Assessment 1
 
 
+
 ## Loading and preprocessing the data
 
 ```r
@@ -23,7 +24,7 @@ qplot(totalSteps, xlab = "Total Steps for each day",main = "Plot for Total Steps
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](PA1_template_files/figure-html/totalSteps-1.png)<!-- -->
 
 
 ```r
