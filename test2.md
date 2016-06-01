@@ -5,6 +5,9 @@ keep_md: true
 ---
 
 
+```r
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## R Markdown
 
