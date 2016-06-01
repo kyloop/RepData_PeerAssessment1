@@ -18,15 +18,11 @@ data1 <- read.csv("activity.csv")
 ```{r}
 library(ggplot2)
 totalSteps <- tapply(data1$steps, data1$date, FUN=sum, na.rm=TRUE)  ##Calculate the total steps by date.
-```
-
-```{r totalSteps, fig.width=6, fig.height=3.5, echo=TRUE}
-qplot(totalSteps, binwidth=30,xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
+qplot(totalSteps,xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
 ```
 
 ```{r}
 mean(totalSteps,na.rm=TRUE)
-
 median(totalSteps, na.rm = TRUE)
 ```
 

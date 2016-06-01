@@ -16,14 +16,14 @@ data1 <- read.csv("activity.csv")
 ```r
 library(ggplot2)
 totalSteps <- tapply(data1$steps, data1$date, FUN=sum, na.rm=TRUE)  ##Calculate the total steps by date.
+qplot(totalSteps,xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
 ```
 
-
-```r
-qplot(totalSteps, binwidth=30,xlab = "Total Steps for each day",main = "Plot for Total Steps for each day")
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/totalSteps-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 
 ```r
